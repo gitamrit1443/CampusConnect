@@ -1,172 +1,149 @@
-<header class="z-[100] h-[--m-top] fixed top-0 left-0 w-full flex items-center bg-white/80 backdrop-blur-xl border-b border-slate-200">
+<header class="z-[100] h-[--m-top] fixed top-0 left-0 w-full flex items-center bg-white/70 backdrop-blur-2xl border-b border-white/60 shadow-lg shadow-indigo-100/40">
 
-            <div class="2xl:w-[--w-side] lg:w-[--w-side-sm] px-3">
+    <!-- ─── Logo area ─── -->
+    <div class="2xl:w-[--w-side] lg:w-[--w-side-sm] px-4 shrink-0">
+        <div class="flex items-center gap-2.5">
+            <!-- Mobile sidebar toggle -->
+            <button uk-toggle="target: #site__sidebar; cls: !-translate-x-0"
+                    class="flex items-center justify-center w-10 h-10 rounded-2xl bg-white/80 hover:bg-indigo-50 hover:text-indigo-600 border border-white/70 shadow-sm xl:hidden group duration-200"
+                    type="button">
+                <ion-icon name="menu-outline"  class="text-2xl group-aria-expanded:hidden"></ion-icon>
+                <ion-icon name="close-outline" class="hidden text-2xl group-aria-expanded:block"></ion-icon>
+            </button>
 
-                <div class="flex items-center gap-1">
+            <!-- Logo -->
+            <div id="logo">
+                <a href="/" class="flex items-center gap-2.5 text-decoration-none">
+                    <!-- Icon mark -->
+                    <span class="md:flex hidden w-10 h-10 rounded-2xl items-center justify-center overflow-hidden shadow-md shadow-indigo-300/50"
+                          style="background: linear-gradient(135deg, #6366f1, #8b5cf6, #7c3aed);">
+                        <img src="~/images/logo.png" class="w-6 h-6 object-contain" alt="logo" />
+                    </span>
+                    <!-- Wordmark -->
+                    <span class="tracking-tight whitespace-nowrap text-[17px] font-extrabold">
+                        <span class="text-slate-900">Campus</span><span style="background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Connect</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
 
-                    <button uk-toggle="target: #site__sidebar; cls: !-translate-x-0"
-                            class="flex items-center justify-center w-8 h-8 text-xl rounded-full hover:bg-gray-100 xl:hidden group"
-                            type="button">
+    <!-- ─── Centre search + right actions ─── -->
+    <div class="flex-1 relative px-4">
+        <div class="max-w-[1220px] mx-auto flex items-center h-full">
 
-                        <ion-icon name="menu-outline" class="text-2xl group-aria-expanded:hidden"></ion-icon>
+            <!-- Search bar -->
+            <form id="search--box"
+                  class="xl:w-[580px] sm:w-80 sm:relative rounded-2xl overflow-hidden z-20 max-md:hidden w-screen left-0 max-sm:fixed max-sm:top-2
+                         bg-white/90 border border-slate-200/70 shadow-sm
+                         focus-within:shadow-lg focus-within:border-indigo-300 focus-within:ring-4 focus-within:ring-indigo-100/60
+                         duration-300">
+                <ion-icon name="search-outline" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-base pointer-events-none"></ion-icon>
+                <input type="text" name="query" placeholder="Search people, posts, events…"
+                       class="w-full !pl-10 !pr-4 !font-normal !bg-transparent h-[42px] !text-sm border-0 outline-none text-slate-700 placeholder:text-slate-400" />
+            </form>
 
-                        <ion-icon name="close-outline" class="hidden text-2xl group-aria-expanded:block"></ion-icon>
+            <!-- Right action cluster -->
+            <div class="flex items-center sm:gap-2 gap-1.5 absolute right-5 top-1/2 -translate-y-1/2">
 
+                <!-- Mobile search icon -->
+                <button type="button"
+                        class="md:hidden w-10 h-10 rounded-2xl bg-white/80 border border-white/70 shadow-sm flex items-center justify-center text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 duration-200">
+                    <ion-icon name="search-outline" class="text-xl"></ion-icon>
+                </button>
+
+                <!-- Messages -->
+                <button type="button"
+                        class="w-10 h-10 rounded-2xl relative bg-white/80 border border-white/70 shadow-sm flex items-center justify-center text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 duration-200 shrink-0">
+                    <ion-icon name="chatbubble-ellipses-outline" class="text-xl"></ion-icon>
+                </button>
+
+                <!-- Notifications -->
+                <div class="relative">
+                    <button type="button"
+                            class="w-10 h-10 rounded-2xl relative bg-white/80 border border-white/70 shadow-sm flex items-center justify-center text-slate-600 hover:text-amber-600 hover:bg-amber-50 duration-200 shrink-0">
+                        <ion-icon name="notifications-outline" class="text-xl"></ion-icon>
+                        <div id="notificationsCount"
+                             class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full text-[9px] font-black flex items-center justify-center ring-2 ring-white text-white"
+                             style="background:linear-gradient(135deg,#ef4444,#dc2626);">3</div>
                     </button>
 
-                    <div id="logo" class="flex items-center">
-
-                        <a href="/" class="flex items-center text-decoration-none text-black">
-
-                            <img src="~/images/logo.png" class="w-10 md:block hidden" alt="logo" />
-
-                            <span class="ml-2">CampusConnect</span>
-
-                        </a>
-
+                    <div class="hidden bg-white/96 backdrop-blur-2xl rounded-3xl drop-shadow-2xl border border-slate-100 md:w-[380px] w-screen pr-1.5"
+                         uk-drop="offset:12; pos:bottom-right; mode:click; animate-out:true;">
+                        <div class="flex items-center justify-between p-5 pb-3">
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">Notifications</h3>
+                                <p class="text-xs text-slate-400 mt-0.5">You have 3 new alerts</p>
+                            </div>
+                            <span class="rounded-full px-3 py-1 text-xs font-bold text-indigo-600"
+                                  style="background:linear-gradient(135deg,#eef2ff,#ede9fe);">3 New</span>
+                        </div>
+                        <div id="notification-dropdown" class="text-sm h-[380px] w-full overflow-y-auto pb-3 px-3">
+                            <div class="flex flex-col items-center justify-center h-full gap-3 text-slate-400">
+                                <ion-icon name="notifications-off-outline" class="text-4xl text-slate-200"></ion-icon>
+                                <span class="text-sm font-medium">No notifications yet</span>
+                            </div>
+                        </div>
                     </div>
+                </div>
 
+                <!-- User avatar + dropdown -->
+                <div class="relative">
+                    <button type="button"
+                            class="w-10 h-10 rounded-2xl cursor-pointer shrink-0 flex items-center justify-center text-white shadow-lg shadow-indigo-300/50 duration-200 hover:scale-105 hover:shadow-indigo-400/60"
+                            style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#7c3aed);">
+                        <ion-icon name="person-circle-outline" class="text-[28px]"></ion-icon>
+                    </button>
+
+                    <div class="hidden bg-white/96 backdrop-blur-2xl rounded-3xl drop-shadow-2xl w-[276px] border border-slate-100"
+                         uk-drop="offset:12; pos:bottom-right; mode:click; animate-out:true;">
+                        <div class="p-4">
+                            <!-- Profile card -->
+                            <div class="flex items-center gap-3 rounded-2xl p-3 border border-indigo-100/60"
+                                 style="background:linear-gradient(135deg,#eef2ff,#f5f3ff,#ede9fe);">
+                                <div class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md shadow-indigo-200 shrink-0"
+                                     style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">
+                                    <ion-icon name="person-circle-outline" class="text-[32px] text-white"></ion-icon>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-sm font-bold text-slate-900 truncate">Marccoa Pop</h4>
+                                    <p class="text-xs text-indigo-500 font-semibold mt-0.5">@@marccoa12</p>
+                                    <div class="flex items-center gap-1.5 mt-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-sm shadow-emerald-300"></span>
+                                        <span class="text-[10px] font-semibold text-emerald-600">Online</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Menu -->
+                            <div class="mt-3 space-y-0.5">
+                                <a href="/Account"
+                                   class="flex items-center gap-3 p-2.5 px-3 rounded-xl text-slate-600 hover:text-indigo-700 hover:bg-indigo-50 text-decoration-none duration-200 text-sm font-medium">
+                                    <ion-icon name="person-outline" class="text-base text-slate-400"></ion-icon>
+                                    My Profile
+                                </a>
+                                <a href="#"
+                                   class="flex items-center gap-3 p-2.5 px-3 rounded-xl text-slate-600 hover:text-indigo-700 hover:bg-indigo-50 text-decoration-none duration-200 text-sm font-medium">
+                                    <ion-icon name="bookmark-outline" class="text-base text-slate-400"></ion-icon>
+                                    Saved Posts
+                                </a>
+                                <a href="#"
+                                   class="flex items-center gap-3 p-2.5 px-3 rounded-xl text-slate-600 hover:text-indigo-700 hover:bg-indigo-50 text-decoration-none duration-200 text-sm font-medium">
+                                    <ion-icon name="settings-outline" class="text-base text-slate-400"></ion-icon>
+                                    Settings
+                                </a>
+                                <div class="my-2 border-t border-slate-100"></div>
+                                <a href="/Account/Logout"
+                                   class="flex items-center gap-3 p-2.5 px-3 rounded-xl text-red-500 hover:bg-red-50 text-decoration-none duration-200 text-sm font-semibold">
+                                    <ion-icon name="exit-outline" class="text-base"></ion-icon>
+                                    Sign out
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-
-            <div class="flex-1 relative">
-
-                <div class="max-w-[1220px] mx-auto flex items-center">
-
-                    <form id="search--box"
-                          class="xl:w-[680px] sm:w-96 sm:relative rounded-xl overflow-hidden z-20 bg-secondery max-md:hidden w-screen left-0 max-sm:fixed max-sm:top-2">
-
-                        <ion-icon name="search-outline" class="absolute left-4 top-1/2 -translate-y-1/2"></ion-icon>
-
-                        <input type="text"
-                               name="query"
-                               placeholder="Search Posts, Friends..."
-                               class="w-full !pl-10 !font-normal !bg-transparent h-12 !text-sm border-0 outline-none" />
-
-                    </form>
-
-                    <div class="flex items-center sm:gap-4 gap-2 absolute right-5 top-1/2 -translate-y-1/2 text-black">
-
-                        @* notification icon *@
-
-                        <div class="relative">
-
-                            <button type="button" class="sm:p-2 p-1 rounded-full relative sm:bg-secondery">
-
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     width="24"
-                                     height="24"
-                                     viewBox="0 0 24 24"
-                                     fill="none"
-                                     stroke="#000000"
-                                     stroke-width="2"
-                                     stroke-linecap="round"
-                                     stroke-linejoin="round">
-
-                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-
-                                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-
-                                    <path d="M2 8c0-2.2.7-4.3 2-6" />
-
-                                    <path d="M22 8a10 10 0 0 0-2-6" />
-
-                                </svg>
-
-                                <div class="absolute top-0 right-0 -m-1 bg-red-600 text-white text-xs px-1 rounded-full"
-                                     id="notificationsCount">
-                                    0
-                                </div>
-
-                            </button>
-
-                            <div class="hidden bg-white pr-1.5 rounded-lg drop-shadow-xl md:w-[365px] w-screen border"
-                                 uk-drop="offset: 6; pos: bottom-right; mode: click; animate-out: true;">
-
-                                <div class="flex items-center justify-between gap-2 p-4 pb-2">
-
-                                    <h3 class="font-bold text-xl">Notifications</h3>
-
-                                </div>
-
-                                <div class="text-sm h-[400px] w-full overflow-y-auto pr-2">
-
-                                    <div class="pl-2 p-1 text-sm font-normal" id="notification-dropdown">
-
-                                        No notifications...
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        @* profile icon *@
-
-                        <div class="relative">
-
-                            <button type="button" class="rounded-full relative bg-secondery cursor-pointer shrink-0 flex items-center justify-center">
-
-                                <ion-icon name="person-circle-outline" class="text-3xl"></ion-icon>
-
-                            </button>
-
-                            <div class="hidden bg-white rounded-lg drop-shadow-xl w-64 border"
-                                 uk-drop="offset: 6; pos: bottom-right; mode: click; animate-out: true;">
-
-                                <div class="p-4 py-5">
-
-                                    <div class="flex items-center gap-4">
-
-                                        <ion-icon name="person-circle-outline" class="text-4xl"></ion-icon>
-
-                                        <div class="flex-1">
-
-                                            <h4 class="text-sm font-medium text-black">Marccoa Pop</h4>
-
-                                            <div class="text-sm mt-1 text-blue-600 font-light">marccoa12</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <hr />
-
-                                    <nav class="mt-2">
-
-                                        <a href="/Account"
-                                           class="flex items-center gap-2.5 hover:bg-secondery p-2 px-2.5 rounded-md text-black text-decoration-none">
-
-                                            <ion-icon name="settings-outline" class="text-lg"></ion-icon>
-
-                                            <span>My Account</span>
-
-                                        </a>
-
-                                        <a href="/Account/Logout"
-                                           class="flex items-center gap-2.5 hover:bg-secondery p-2 px-2.5 rounded-md text-black text-decoration-none">
-
-                                            <ion-icon name="exit-outline" class="text-lg"></ion-icon>
-
-                                            <span>Logout</span>
-
-                                        </a>
-
-                                    </nav>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </header>
+        </div>
+    </div>
+</header>

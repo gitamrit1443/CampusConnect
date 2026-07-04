@@ -1,0 +1,90 @@
+<div id="create-status" class="uk-modal" uk-modal="">
+    <div class="uk-modal-dialog relative overflow-hidden mx-auto bg-white/97 backdrop-blur-2xl shadow-2xl border border-white/80 md:w-[540px] w-[94vw]"
+         style="border-radius:1.75rem;">
+
+        <!-- Modal header with gradient -->
+        <div class="relative text-center px-7 py-5 border-b border-white/30"
+             style="background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#7c3aed 100%);">
+            <!-- Decorative circles -->
+            <div class="absolute top-0 left-0 w-32 h-32 rounded-full opacity-20 blur-2xl -translate-x-1/2 -translate-y-1/2"
+                 style="background:#a5b4fc;"></div>
+            <div class="absolute bottom-0 right-0 w-24 h-24 rounded-full opacity-20 blur-2xl translate-x-1/3 translate-y-1/3"
+                 style="background:#c4b5fd;"></div>
+
+            <h2 class="text-base font-bold text-white relative z-10">Create a Post</h2>
+
+            <button type="button"
+                    class="absolute top-1/2 right-4 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 duration-200 uk-modal-close z-10">
+                <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+            </button>
+        </div>
+
+        <!-- Form body -->
+        <form method="post" enctype="multipart/form-data" class="p-6 sm:p-7 space-y-4">
+
+            <!-- User header inside form -->
+            <div class="flex items-center gap-3 mb-1">
+                <div class="w-11 h-11 rounded-2xl p-[2.5px] shadow-md shadow-indigo-200 shrink-0"
+                     style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">
+                    <div style="width:100%;height:100%;border-radius:9px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.15);">
+                        <ion-icon name="person-circle-outline" style="font-size:26px;color:white;"></ion-icon>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-sm font-bold text-slate-900">Marccoa Pop</p>
+                    <div class="mt-0.5 flex items-center gap-1 bg-slate-100 hover:bg-slate-200 rounded-lg px-2 py-0.5 w-fit cursor-pointer duration-200">
+                        <ion-icon name="earth-outline" class="text-xs text-indigo-500"></ion-icon>
+                        <span class="text-[11px] font-semibold text-slate-600">Public</span>
+                        <ion-icon name="chevron-down-outline" class="text-[10px] text-slate-400"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text area -->
+            <textarea name="content" rows="4" placeholder="What's on your mind?"
+                      class="w-full resize-none rounded-2xl placeholder:!text-slate-400 !bg-slate-50/70 !border-slate-200 focus:!border-indigo-400 focus:!ring-4 focus:!ring-indigo-100 !text-slate-900 !font-normal !text-base p-4 shadow-sm duration-200"></textarea>
+
+            <!-- Image preview -->
+            <div id="imagePreviewContainer" class="hidden overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm relative">
+                <img src="#" alt="preview" id="imagePreview" class="w-full max-h-64 object-cover" />
+                <button type="button"
+                        onclick="document.getElementById('imagePreviewContainer').classList.add('hidden')"
+                        class="absolute top-2 right-2 w-8 h-8 rounded-full bg-slate-900/60 hover:bg-slate-900/80 text-white flex items-center justify-center duration-200">
+                    <ion-icon name="close-outline" class="text-lg"></ion-icon>
+                </button>
+            </div>
+
+            <!-- Toolbar row -->
+            <div class="flex items-center justify-between gap-3 flex-wrap rounded-2xl bg-slate-50 border border-slate-200/80 p-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mr-1">Add to post</span>
+                    <input type="file" name="uploadContent" id="imageUpload" class="hidden" accept="image/png,image/jpg,image/jpeg" />
+                    <button type="button" id="imageUploadBtn"
+                            class="flex items-center justify-center w-9 h-9 rounded-xl duration-200 hover:scale-105"
+                            style="background:linear-gradient(135deg,#fff1f2,#ffe4e6); color:#f43f5e;"
+                            title="Add photo">
+                        <ion-icon name="image-outline" class="text-lg"></ion-icon>
+                    </button>
+                    <button type="button"
+                            class="flex items-center justify-center w-9 h-9 rounded-xl duration-200 hover:scale-105"
+                            style="background:linear-gradient(135deg,#fff7ed,#ffedd5); color:#f97316;"
+                            title="Tag feeling">
+                        <ion-icon name="happy-outline" class="text-lg"></ion-icon>
+                    </button>
+                    <button type="button"
+                            class="flex items-center justify-center w-9 h-9 rounded-xl duration-200 hover:scale-105"
+                            style="background:linear-gradient(135deg,#f0fdf4,#dcfce7); color:#10b981;"
+                            title="Location">
+                        <ion-icon name="location-outline" class="text-lg"></ion-icon>
+                    </button>
+                </div>
+                <button type="submit"
+                        class="rounded-2xl py-2.5 px-7 text-sm font-bold text-white shadow-lg shadow-indigo-200/70 duration-200 hover:opacity-90 hover:scale-[1.02]"
+                        style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#7c3aed);">
+                    Post
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,17 +1,135 @@
-<div id="site__sidebar" 
-class="fixed top-0 left-0 z-[99] pt-[--m-top] overflow-hidden transition-transform xl:duration-500 max-xl:translate-x-full">
-    <div class="p-2 max-xl:bg-white shadow-sm 2xl:w-72 s:w-72 sw-64 w-[80%] h-[calc(100vh-64px)] relative z-30 max-lg:border-r dark:max-xl:!bg-slate-700 dark:border-slate-700">
-        <div class="pr-4" data-simple>
-            <nav id="side">
-                <ul>
-                    
+<div id="site__sidebar" class="fixed top-0 left-0 z-[99] pt-[--m-top] overflow-hidden transition-transform xl:duration-500 max-xl:translate-x-full">
+    <div class="p-3 max-xl:bg-white/95 max-xl:backdrop-blur-2xl shadow-2xl shadow-indigo-100/40
+                2xl:w-72 lg:w-72 sm:w-64 w-[82%]
+                h-[calc(100vh-var(--m-top))] relative z-30 max-lg:border-r border-white/60">
+
+        <!-- Sidebar inner: glassmorphism card -->
+        <div class="h-full flex flex-col rounded-3xl overflow-hidden bg-white/80 backdrop-blur-xl border border-white/70 shadow-xl shadow-indigo-100/20">
+
+            <!-- ─── Navigation ─── -->
+            <nav id="side" class="flex-1 overflow-y-auto p-3 space-y-5">
+
+                <!-- Main items -->
+                <ul class="space-y-1">
+                    <!-- Feed – active state -->
+                    <li>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-indigo-700 border border-indigo-100/70 text-decoration-none"
+                           style="background:linear-gradient(135deg,#eef2ff,#ede9fe);">
+                            <span class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 shadow-md shadow-indigo-200/60"
+                                  style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">
+                                <img src="~/images/icons/home.png" class="w-[18px] h-[18px] object-contain brightness-[10]" alt="Feed" />
+                            </span>
+                            <span class="font-bold text-sm flex-1">Feed</span>
+                            <span class="w-5 h-5 rounded-full text-[10px] font-black flex items-center justify-center text-white shrink-0"
+                                  style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">5</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-slate-600 border border-transparent hover:border-indigo-100/50 hover:text-indigo-700 duration-200 text-decoration-none"
+                           style="--hover-bg:linear-gradient(135deg,#eef2ff,#ede9fe);"
+                           onmouseenter="this.style.background='linear-gradient(135deg,#eef2ff,#ede9fe)'"
+                           onmouseleave="this.style.background=''">
+                            <span class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center shrink-0">
+                                <img src="~/images/icons/page.png" class="w-[18px] h-[18px] object-contain" alt="Favorites" />
+                            </span>
+                            <span class="font-semibold text-sm">Favorites</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-slate-600 border border-transparent hover:border-indigo-100/50 hover:text-indigo-700 duration-200 text-decoration-none"
+                           onmouseenter="this.style.background='linear-gradient(135deg,#eef2ff,#ede9fe)'"
+                           onmouseleave="this.style.background=''">
+                            <span class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center shrink-0">
+                                <img src="~/images/icons/friends.png" class="w-[18px] h-[18px] object-contain" alt="Friends" />
+                            </span>
+                            <span class="font-semibold text-sm">Friends</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-slate-600 border border-transparent hover:border-indigo-100/50 hover:text-indigo-700 duration-200 text-decoration-none"
+                           onmouseenter="this.style.background='linear-gradient(135deg,#eef2ff,#ede9fe)'"
+                           onmouseleave="this.style.background=''">
+                            <span class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center shrink-0 text-slate-500">
+                                <ion-icon name="chatbubble-ellipses-outline" class="text-lg"></ion-icon>
+                            </span>
+                            <span class="font-semibold text-sm flex-1">Messages</span>
+                            <span class="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] font-black flex items-center justify-center shrink-0">2</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-slate-600 border border-transparent hover:border-indigo-100/50 hover:text-indigo-700 duration-200 text-decoration-none"
+                           onmouseenter="this.style.background='linear-gradient(135deg,#eef2ff,#ede9fe)'"
+                           onmouseleave="this.style.background=''">
+                            <span class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center shrink-0 text-slate-500">
+                                <ion-icon name="calendar-outline" class="text-lg"></ion-icon>
+                            </span>
+                            <span class="font-semibold text-sm">Events</span>
+                        </a>
+                    </li>
                 </ul>
 
+                <!-- Divider + Pages section -->
+                <div>
+                    <div class="flex items-center gap-2 mb-2 px-1">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Account</span>
+                        <div class="flex-1 h-px bg-slate-100"></div>
+                    </div>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-slate-600 border border-transparent hover:border-indigo-100/50 hover:text-indigo-700 duration-200 text-decoration-none"
+                               onmouseenter="this.style.background='linear-gradient(135deg,#eef2ff,#ede9fe)'"
+                               onmouseleave="this.style.background=''">
+                                <span class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center shrink-0 text-slate-500">
+                                    <ion-icon name="settings-outline" class="text-lg"></ion-icon>
+                                </span>
+                                <span class="font-semibold text-sm">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-slate-600 border border-transparent hover:border-indigo-100/50 hover:text-indigo-700 duration-200 text-decoration-none"
+                               onmouseenter="this.style.background='linear-gradient(135deg,#eef2ff,#ede9fe)'"
+                               onmouseleave="this.style.background=''">
+                                <span class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center shrink-0 text-slate-500">
+                                    <ion-icon name="bookmark-outline" class="text-lg"></ion-icon>
+                                </span>
+                                <span class="font-semibold text-sm">Saved</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
-        </div>
 
+            <!-- ─── User profile card (bottom) ─── -->
+            <div class="p-3 border-t border-slate-100/70 shrink-0">
+                <div class="flex items-center gap-3 rounded-2xl p-2.5 border border-indigo-100/50"
+                     style="background:linear-gradient(135deg,#eef2ff,#f5f3ff,#ede9fe);">
+                    <!-- Avatar -->
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-md shadow-indigo-200"
+                         style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">
+                        <ion-icon name="person-circle-outline" class="text-2xl text-white"></ion-icon>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-bold text-slate-900 truncate">Marccoa Pop</p>
+                        <div class="flex items-center gap-1.5 mt-0.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span class="text-[10px] font-semibold text-emerald-600">Active now</span>
+                        </div>
+                    </div>
+                    <a href="/Account/Logout"
+                       class="w-8 h-8 rounded-xl bg-white/80 border border-white/70 hover:bg-red-50 hover:border-red-100 text-slate-400 hover:text-red-500 flex items-center justify-center duration-200 shrink-0">
+                        <ion-icon name="exit-outline" class="text-base"></ion-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="site__sidebar__overly" 
-    class="absolute top-0 left-0 z-20 w-screen h-screen xl:hidden backdrop-blur-sm" 
-    uk-toggle="target:#site__sidebar ; cls :!-translate-x-0"></div>
+
+    <!-- Mobile overlay -->
+    <div id="site__sidebar__overly"
+         class="absolute top-0 left-0 z-20 w-screen h-screen xl:hidden backdrop-blur-sm bg-slate-900/20"
+         uk-toggle="target: #site__sidebar; cls: !-translate-x-0"></div>
 </div>
